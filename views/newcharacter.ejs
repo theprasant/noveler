@@ -1,0 +1,33 @@
+<%- include('partials/header') -%>
+
+    <link rel="stylesheet" href="/css/newproject.css">
+
+    <div class="create-new-page-container">
+        <h1 class="page-header-text">New Character</h1>
+
+        <div class="project-form-container">
+            <form id="project-form" action="<%= postReqPath %>" method="POST">
+                <label for="characterName">Character Name</label><br>
+                <input class="text-input" type="text" id="characterName" name="characterName" required><br><br>
+                <label for="characterDescription">Character Description</label><br>
+                <textarea class="text-input" id="characterDescription" name="characterDescription" rows="4" required></textarea><br>
+                <div id="error-message" class="error-message"></div><br>
+                <button type="submit">Create Character</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const characterDescription = document.getElementById('characterDescription');
+        const characterName = document.getElementById('characterName');
+        
+        characterDescription.addEventListener('input', function() {
+            const maxLength = 500; // Set your desired maximum length here
+            if (characterDescription.value.length > maxLength) {
+                characterDescription.value = characterDescription.value.substring(0, maxLength);
+                document.getElementById('error-message').innerText = 'Character description cannot exceed ' + maxLength + ' characters.';
+            } else {
+                document.getElementById('error-message').innerText = '';
+            }
+        });
+    </script>
+    <%- include('partials/footer') -%>

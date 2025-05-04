@@ -1,0 +1,107 @@
+.project-page-header,
+.project-page-characters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-page-header {
+    padding: 1rem 2rem;
+}
+
+.new-project-button,
+.new-character-button {
+    background: #007bff;
+    color: #fff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.2em;
+    font-size: 0.9rem;
+    /* font-weight: 600; */
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.all-projects-container,
+.project-page-characters-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    /* grid-template-rows: repeat(auto-fit, minmax(13rem, 1fr));
+    justify-items: flex-start; */
+    gap: 1.5rem;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.all-projects-container {
+    padding: 1rem 2rem;
+}
+
+.all-projects-container>a {
+    text-decoration: none;
+    width: fit-content;
+}
+
+.no-projects,
+.loading-div {
+    min-height: 60vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project,
+.character-container {
+    height: 13rem;
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.project:hover,
+.character-container:hover {
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.05);
+    border-radius: 0.2em;
+    cursor: pointer;
+}
+
+.project:hover>.project-image,
+.character-container:hover>.character-image {
+    background: #ff7f50;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.project-image,
+.character-image {
+    background: orangered;
+    border-radius: 0.2em;
+    flex: 6;
+    width: 100%;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+}
+
+.project-name,
+.character-name {
+    flex: 1;
+    width: 100%;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0.5rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.project-name:hover,
+.character-name:hover {
+    color: #eee;
+    cursor: pointer;
+}

@@ -1,0 +1,17 @@
+.history-version {
+    display: flex;
+    justify-content: space-between;
+    color: dodgerblue;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.version-id{
+    max-width: 30%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#revert-button{
+    cursor: pointer;
+}

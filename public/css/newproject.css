@@ -1,0 +1,56 @@
+.create-new-page-container{
+    display: flex;
+    width: fit-content;
+    margin: 2rem auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 70vh;
+}
+.project-form-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+}
+
+#project-form{
+    min-height: 60vh;
+    min-width: 40rem;
+}
+
+#project-form > button, #save-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    /* align to right */
+    float: right;
+}
+#project-form > button:hover, #save-button:hover {
+    background: #0056b3;
+}
+
+#project-form > button:disabled, #save-button:disabled {
+    color: #ccc;
+    background: #0056b3;
+    cursor: not-allowed;
+}
+
+.text-input{
+    background: none;
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    width: calc(100% - 20px);
+}
+
+.error-message{
+    color: red;
+    font-size: 0.8rem;
+    margin: 10px;
+}

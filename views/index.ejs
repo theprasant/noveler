@@ -1,0 +1,50 @@
+<%- include('partials/header') -%>
+
+<!-- Hero Section -->
+<section class="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white flex flex-col items-center justify-center px-6 text-center">
+  <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">Welcome to <span class="text-blue-500">Noveler</span></h1>
+  <p class="text-lg sm:text-xl md:text-2xl max-w-2xl mb-8">
+    A version control system for your story characters. Create, edit, and track your characters' evolution across your novels, movies, or other projects.
+  </p>
+
+  <% if (!locals.isAuthenticated) { %>
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href="/login" class="px-6 py-3 rounded-lg bg-blue-500 hover:bg-blue-600 transition text-white text-lg font-semibold shadow-md">Get Started</a>
+      <a href="/login" class="px-6 py-3 rounded-lg border border-white text-white hover:bg-white hover:text-gray-800 transition text-lg font-semibold shadow-md">Login</a>
+    </div>
+  <% } else { %>
+    <div class="text-lg text-green-400 font-semibold">You're already logged in. <a href="/projects" class="underline hover:text-green-300">Go to Projects page</a></div>
+  <% } %>
+</section>
+
+<!-- Features Section -->
+<section class="py-16 text-slate-900 px-6">
+  <div class="max-w-5xl mx-auto text-center">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-10 text-slate-900">Why Noveler?</h2>
+    <div class="grid md:grid-cols-3 gap-10 text-left">
+      <div class="p-6 rounded-xl shadow-md border border-slate-200 hover:shadow-lg transition duration-300">
+        <h3 class="text-xl font-semibold mb-2 text-slate-900">Track Character History</h3>
+        <p class="text-slate-700">Every change is saved as a version, so you can revisit how your characters grew, changed, or diverged over time.</p>
+      </div>
+      <div class="p-6 rounded-xl shadow-md border border-slate-200 hover:shadow-lg transition duration-300">
+        <h3 class="text-xl font-semibold mb-2 text-slate-900">Multi-Project Support</h3>
+        <p class="text-slate-700">Organize characters by novel, movie, or any creative work. Keep everything structured and separate.</p>
+      </div>
+      <div class="p-6 rounded-xl shadow-md border border-slate-200 hover:shadow-lg transition duration-300">
+        <h3 class="text-xl font-semibold mb-2 text-slate-900">Edit with Ease</h3>
+        <p class="text-slate-700">Use our intuitive UI to update details with instant saving and versioning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer CTA -->
+<% if (!locals.isAuthenticated) { %>
+  <section class="bg-slate-900 text-white py-16 px-6 text-center">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-6">Start writing smarter</h2>
+    <p class="text-lg mb-8">Bring your characters to life—and keep track of their evolution—with Noveler.</p>
+    <a href="/login" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-semibold shadow-md">Join Now</a>
+  </section>
+<% } %>
+
+<%- include('partials/footer') -%>

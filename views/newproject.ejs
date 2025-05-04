@@ -1,0 +1,60 @@
+<%- include('partials/header') -%>
+
+    <link rel="stylesheet" href="/css/newproject.css">
+
+    <div class="create-new-page-container">
+        <h1 class="page-header-text">New Project</h1>
+
+        <div class="project-form-container">
+            <form id="project-form" action="/projects/new" method="POST">
+                <label for="projectName">Project Name</label><br>
+                <input class="text-input" type="text" id="projectName" name="projectName" required><br><br>
+                <label for="projectDescription">Project Description</label><br>
+                <textarea class="text-input" id="projectDescription" name="projectDescription" rows="4"
+                    required></textarea><br><br>
+                <button type="submit">Create Project</button>
+            </form>
+            <div id="error-message" class="error-message"></div>
+        </div>
+    </div>
+    <!-- <script>
+        const projectForm = document.getElementById('project-form');
+        const errorMessage = document.getElementById('error-message');
+
+        projectForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const formData = new FormData(projectForm);
+            const projectName = formData.get('projectName').trim();
+
+            if (projectName === '') {
+                errorMessage.textContent = 'Project name cannot be empty.';
+                return;
+            }
+
+            // Submit the form using fetch API
+            fetch(projectForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest' // Optional: to indicate an AJAX request
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = '/projects'; // Redirect to projects page on success
+                } else {
+                    errorMessage.textContent = data.message || 'An error occurred. Please try again.';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                errorMessage.textContent = 'An error occurred. Please try again.';
+            });
+        });
+    </script> -->
+
+
+
+    <%- include('partials/footer') -%>

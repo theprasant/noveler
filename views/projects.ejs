@@ -1,0 +1,61 @@
+<%- include('partials/header') -%>
+    <link rel="stylesheet" href="/css/projects.css">
+
+    <div class="project-page-header">
+        <h2 class="page-header-text">Projects</h2>
+        <a href="/projects/new" class="new-project-button">New Project</a>
+    </div>
+
+    <div class="loading-div" id="loading-div">
+        <p>Loading...</p>
+    </div>
+    <div class="all-projects-container" id="all-projects-container">
+    </div>
+
+    <script>
+        const allProjectsContainer = document.getElementById('all-projects-container');
+        const loadingDiv = document.getElementById('loading-div');
+        // eslint-disable-next-line
+        let projectsinfo = <%- JSON.stringify(userProjectsInfo) %>;
+        try {
+            projectsinfo = JSON.parse(projectsinfo);
+        } catch (error) {
+            projectsinfo = {};
+            console.error('Error parsing projectsinfo:', error);
+        }
+
+        // add the projects in the container with the anchor tag
+        allProjectsContainer.innerHTML = '';
+
+        if (Object.keys(projectsinfo).length === 0) {
+            loadingDiv.innerHTML = '<p>No projects available</p>';
+        } else {
+            loadingDiv.style.display = 'none';
+            allProjectsContainer.style.display = 'grid';
+            for (const projectId in projectsinfo) {
+                if (!projectsinfo[projectId] || projectsinfo[projectId].trim() === '') {
+                    continue;
+                }
+
+                const projectName = projectsinfo[projectId];
+                let projectImageText = projectName?.trim().charAt(0).toUpperCase();
+                const projectDiv = document.createElement('div');
+                projectDiv.className = 'project';
+                projectDiv.innerHTML = `
+                    <div class="project-image">
+                        ${projectImageText}
+                    </div>
+                    <div class="project-name">
+                        ${projectName}
+                    </div>
+            `;
+                const projectLink = document.createElement('a');
+                projectLink.href = `/project/${projectId}`;
+                projectLink.appendChild(projectDiv);
+                allProjectsContainer.appendChild(projectLink);
+            }
+
+        }
+
+    </script>
+    <%- include('partials/footer') -%>

@@ -1,0 +1,178 @@
+<%- include('partials/header') -%>
+    <link rel="stylesheet" href="/css/project.css">
+    <link rel="stylesheet" href="/css/projects.css">
+    <link rel="stylesheet" href="/css/character.css">
+
+    <div class="project-page-all-container">
+
+        <div class="left-bar-container">
+            <div class="left-bar-header">
+                <div class="left-bar-project-name">
+                    <a class="left-bar-project" href="/project/<%= projectId %>">
+                        <%= projectData.name %>
+                    </a>
+                    <div class="left-bar-character">
+                        <span class="color-light-gray">/</span>
+                        <%= characterData.name %>
+                    </div>
+                </div>
+
+                <div class="left-bar-revert-icon-container" id="revert-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#e3e3e3">
+                        <path
+                            d="M480-80q-75 0-140.5-28.5t-114-77q-48.5-48.5-77-114T120-440h80q0 117 81.5 198.5T480-160q117 0 198.5-81.5T760-440q0-117-81.5-198.5T480-720h-6l62 62-56 58-160-160 160-160 56 58-62 62h6q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-440q0 75-28.5 140.5t-77 114q-48.5 48.5-114 77T480-80Z" />
+                    </svg>
+                </div>
+
+            </div>
+
+            <div class="left-bar-list-container">
+
+                <!-- for loop -->
+                <% for(const charId in (projectData.charactersinfo)) { %>
+
+                    <!-- skip if charId =  <%= characterId %> -->
+                    <% if (charId===characterId) continue; %>
+
+
+                        <div class="left-bar-list-item">
+                            <svg width="35" height="35" viewBox="0 0 64 64" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M18.6666 22C20.6115 22 22.4768 21.2274 23.852 19.8521C25.2273 18.4768 25.9999 16.6116 25.9999 14.6666C25.9999 12.7217 25.2273 10.8565 23.852 9.4812C22.4768 8.10593 20.6115 7.33331 18.6666 7.33331C16.7217 7.33331 14.8564 8.10593 13.4811 9.4812C12.1059 10.8565 11.3333 12.7217 11.3333 14.6666C11.3333 16.6116 12.1059 18.4768 13.4811 19.8521C14.8564 21.2274 16.7217 22 18.6666 22ZM18.6666 22V42M18.6666 22C18.6666 29.7333 24.9333 36 32.6666 36H37.9999M18.6666 42C16.7217 42 14.8564 42.7726 13.4811 44.1479C12.1059 45.5231 11.3333 47.3884 11.3333 49.3333C11.3333 51.2782 12.1059 53.1435 13.4811 54.5188C14.8564 55.894 16.7217 56.6666 18.6666 56.6666C20.6115 56.6666 22.4768 55.894 23.852 54.5188C25.2273 53.1435 25.9999 51.2782 25.9999 49.3333C25.9999 47.3884 25.2273 45.5231 23.852 44.1479C22.4768 42.7726 20.6115 42 18.6666 42ZM37.9999 36C37.9999 37.9449 38.7725 39.8102 40.1478 41.1854C41.5231 42.5607 43.3883 43.3333 45.3332 43.3333C47.2782 43.3333 49.1434 42.5607 50.5187 41.1854C51.894 39.8102 52.6666 37.9449 52.6666 36C52.6666 34.0551 51.894 32.1898 50.5187 30.8145C49.1434 29.4393 47.2782 28.6666 45.3332 28.6666C43.3883 28.6666 41.5231 29.4393 40.1478 30.8145C38.7725 32.1898 37.9999 34.0551 37.9999 36Z"
+                                    stroke="#E6E6E6" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            <a href="/project/<%= projectId %>/character/<%= charId %>">
+                                <%= projectData.charactersinfo[charId] %>
+                            </a>
+                        </div>
+                        <% } %>
+
+            </div>
+
+        </div>
+
+
+        <div class="project-page-content-container">
+
+            <div class="bg-yellow-900/20 border-l-4 border-yellow-500 text-yellow-300 p-4 rounded mb-4" role="alert">
+                <p class="font-bold">Warning</p>
+                <p>You are viewing an older version ( <span class="text-yellow-600"><%= versionId %></span> ) of this character. Please visit the current version <a
+                        href="/project/<%= projectId %>/character/<%= characterId %>"
+                        class="underline text-yellow-600">here</a>.</p>
+            </div>
+
+
+            <div class="project-page-content-header">
+                <div class="project-page-content-header-left">
+                    <div class="project-image-container">
+                        <%= characterData.name.charAt(0).toUpperCase() %>
+                    </div>
+                </div>
+                <div class="project-page-content-header-right">
+                    <div class="right-side-project-name">
+                        <%= characterData.name %>
+                    </div>
+                    <div class="right-side-project-details-container">
+                        <div class="project-created-container">
+                            <div class="project-created-text">
+                                <span class="color-light-gray">
+                                    Created:
+                                </span> <span class="project-created-date" title="<%= characterData.createdAt %>">
+                                    <%= characterData.createdAt %>
+                                </span>
+                            </div>
+                            <div class="project-updated-text">
+                                <span class="color-light-gray">
+                                    Updated:
+                                </span> <span class="project-updated-date" title="<%= characterData.updatedAt %>">
+                                    <%= characterData.updatedAt %>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-page-description-container">
+                <h2 class="project-page-h2-header-text">
+                    Details
+                </h2>
+                <div class="project-page-description-body">
+                    <%- characterData.description %>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <script>
+            // eslint-disable-next-line no-undef
+            const characterData = <%- JSON.stringify(characterData) %>;
+            const rawCharacterData = <%- JSON.stringify(rawCharacterData) %>;
+            const characterId = <%- JSON.stringify(characterId) %>;
+            const projectId = <%- JSON.stringify(projectId) %>;
+            //console.log('characterId: ', characterId); // Log the characterId for debugging
+            const projectCreatedDateDiv = document.querySelector('.project-created-date');
+            const updatedDateDiv = document.querySelector('.project-updated-date');
+            const revertButton = document.getElementById('revert-button');
+
+            function formatDate(dateString) {
+                const date = new Date(dateString._seconds * 1000 + dateString._nanoseconds / 1000000);
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                return date.toLocaleDateString(undefined, options);
+            }
+
+            function formatFullDate(dateString) {
+                const date = new Date(dateString._seconds * 1000 + dateString._nanoseconds / 1000000);
+                const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+                return date.toLocaleDateString(undefined, options);
+            }
+            const createdAt = characterData.createdAt;
+            const updatedAt = characterData.updatedAt; // Assuming you want to format the updatedAt date as well
+            //console.log(createdAt, updatedAt); // Log the createdAt and updatedAt values for debugging
+            //console.log(formatDate(createdAt), formatDate(updatedAt)); // Log the formatted dates for debugging
+            projectCreatedDateDiv.textContent = formatDate(createdAt); // Update the displayed date
+            projectCreatedDateDiv.title = formatFullDate(createdAt); // Set the tooltip to show the full date
+            updatedDateDiv.textContent = formatDate(updatedAt); // Update the displayed updated date
+            updatedDateDiv.title = formatFullDate(updatedAt); // Set the tooltip to show the full updated date
+
+            // when the revert button is clicked, send a post request to the server to revert the character to the latest version
+
+
+            revertButton.addEventListener('click', function () {
+                // ask for confirmation before reverting
+                const confirmRevert = confirm('Are you sure you want to revert this character to the latest version? This action cannot be undone.');
+                if (!confirmRevert) {
+                    return; // User cancelled the revert action
+                }
+                // Send a POST request to the server to revert the character
+                fetch(`/project/${projectId}/character/${characterId}/revert`, { // Updated endpoint
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ characterName: rawCharacterData.name, characterDescription: rawCharacterData.description })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        //console.log('Response:', data); // Log the response for debugging
+                        if (data.success) {
+                            // Handle successful edit
+                            window.location.href = `/project/${projectId}/character/${characterId}`; // Redirect to the character page
+                        } else {
+                            // Handle error
+                            alert('Message: ' + data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
+        </script>
+
+        <%- include('partials/footer') -%>

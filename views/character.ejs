@@ -1,0 +1,216 @@
+<%- include('partials/header') -%>
+    <link rel="stylesheet" href="/css/project.css">
+    <link rel="stylesheet" href="/css/projects.css">
+    <link rel="stylesheet" href="/css/character.css">
+
+    <div class="project-page-all-container">
+
+        <div class="left-bar-container">
+            <div class="left-bar-header">
+                <div class="left-bar-project-name">
+                    <a class="left-bar-project" href="/project/<%= projectId %>">
+                        <%= projectData.name %>
+                    </a>
+                    <div class="left-bar-character">
+                        <span class="color-light-gray">/</span>
+                        <%= characterData.name %>
+                    </div>
+                </div>
+
+
+                <svg id="settings-btn" onclick="showContextMenu(event, '<%= characterId %>')"
+                    class="left-bar-settings-icon" width="25" height="25" viewBox="0 0 39 39" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M19.5 24.375C22.1924 24.375 24.375 22.1924 24.375 19.5C24.375 16.8076 22.1924 14.625 19.5 14.625C16.8076 14.625 14.625 16.8076 14.625 19.5C14.625 22.1924 16.8076 24.375 19.5 24.375Z"
+                        stroke="#E6E6E6" stroke-width="1.5" />
+                    <path opacity="0.5"
+                        d="M22.3681 3.497C21.7717 3.25 21.0145 3.25 19.5 3.25C17.9855 3.25 17.2282 3.25 16.6319 3.497C16.2373 3.66033 15.8788 3.89983 15.5768 4.2018C15.2748 4.50377 15.0353 4.86229 14.872 5.25687C14.7225 5.61925 14.6624 6.04338 14.6396 6.65925C14.629 7.10438 14.5057 7.53956 14.2812 7.92408C14.0567 8.30859 13.7383 8.62987 13.3559 8.85788C12.9672 9.07525 12.5297 9.19047 12.0844 9.19274C11.639 9.19502 11.2004 9.08427 10.8095 8.87088C10.2635 8.58163 9.86862 8.42238 9.477 8.37038C8.62277 8.25804 7.75889 8.4895 7.07525 9.01387C6.565 9.40875 6.18475 10.0636 5.4275 11.375C4.67025 12.6864 4.29 13.3412 4.20712 13.9831C4.15128 14.4064 4.17937 14.8365 4.28978 15.2488C4.4002 15.6612 4.59077 16.0478 4.85062 16.3865C5.09112 16.6985 5.4275 16.9601 5.94912 17.2884C6.71775 17.771 7.21175 18.5932 7.21175 19.5C7.21175 20.4068 6.71775 21.229 5.94912 21.71C5.4275 22.0399 5.0895 22.3015 4.85062 22.6135C4.59077 22.9522 4.4002 23.3388 4.28978 23.7512C4.17937 24.1635 4.15128 24.5936 4.20712 25.0169C4.29162 25.6571 4.67025 26.3136 5.42587 27.625C6.18475 28.9364 6.56337 29.5912 7.07525 29.9861C7.41396 30.246 7.80054 30.4366 8.21292 30.547C8.6253 30.6574 9.05539 30.6855 9.47863 30.6296C9.86863 30.5776 10.2635 30.4184 10.8095 30.1291C11.2004 29.9157 11.639 29.805 12.0844 29.8073C12.5297 29.8095 12.9672 29.9247 13.3559 30.1421C14.1407 30.5971 14.6071 31.434 14.6396 32.3408C14.6624 32.9583 14.7209 33.3807 14.872 33.7431C15.0353 34.1377 15.2748 34.4962 15.5768 34.7982C15.8788 35.1002 16.2373 35.3397 16.6319 35.503C17.2282 35.75 17.9855 35.75 19.5 35.75C21.0145 35.75 21.7717 35.75 22.3681 35.503C22.7627 35.3397 23.1212 35.1002 23.4232 34.7982C23.7252 34.4962 23.9647 34.1377 24.128 33.7431C24.2775 33.3807 24.3376 32.9583 24.3604 32.3408C24.3929 31.434 24.8592 30.5955 25.6441 30.1421C26.0328 29.9247 26.4703 29.8095 26.9156 29.8073C27.361 29.805 27.7996 29.9157 28.1905 30.1291C28.7365 30.4184 29.1314 30.5776 29.5214 30.6296C29.9446 30.6855 30.3747 30.6574 30.7871 30.547C31.1995 30.4366 31.586 30.246 31.9247 29.9861C32.4366 29.5929 32.8152 28.9364 33.5725 27.625C34.3297 26.3136 34.71 25.6588 34.7929 25.0169C34.8487 24.5936 34.8206 24.1635 34.7102 23.7512C34.5998 23.3388 34.4092 22.9522 34.1494 22.6135C33.9089 22.3015 33.5725 22.0399 33.0509 21.7116C32.6705 21.4799 32.3552 21.1555 32.1343 20.7687C31.9135 20.3819 31.7944 19.9454 31.7882 19.5C31.7882 18.5932 32.2823 17.771 33.0509 17.29C33.5725 16.9601 33.9105 16.6985 34.1494 16.3865C34.4092 16.0478 34.5998 15.6612 34.7102 15.2488C34.8206 14.8365 34.8487 14.4064 34.7929 13.9831C34.7084 13.3429 34.3297 12.6864 33.5741 11.375C32.8152 10.0636 32.4366 9.40875 31.9247 9.01387C31.586 8.75402 31.1995 8.56345 30.7871 8.45303C30.3747 8.34262 29.9446 8.31453 29.5214 8.37038C29.1314 8.42238 28.7365 8.58163 28.1889 8.87088C27.7982 9.08398 27.3598 9.19457 26.9148 9.19229C26.4698 9.19002 26.0326 9.07496 25.6441 8.85788C25.2617 8.62987 24.9433 8.30859 24.7188 7.92408C24.4943 7.53956 24.371 7.10438 24.3604 6.65925C24.3376 6.04175 24.2791 5.61925 24.128 5.25687C23.9647 4.86229 23.7252 4.50377 23.4232 4.2018C23.1212 3.89983 22.7627 3.66033 22.3681 3.497Z"
+                        stroke="#E6E6E6" stroke-width="1.5" />
+                </svg>
+
+            </div>
+
+            <div class="left-bar-list-container">
+
+               <!-- for loop -->
+                <% for(const charId in (projectData.charactersinfo)) { %>
+                    
+                    <!-- skip if charId =  <%= characterId %> -->
+                    <% if (charId === characterId) continue; %>
+                     
+                     
+                    <div class="left-bar-list-item">
+                        <svg width="35" height="35" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M18.6666 22C20.6115 22 22.4768 21.2274 23.852 19.8521C25.2273 18.4768 25.9999 16.6116 25.9999 14.6666C25.9999 12.7217 25.2273 10.8565 23.852 9.4812C22.4768 8.10593 20.6115 7.33331 18.6666 7.33331C16.7217 7.33331 14.8564 8.10593 13.4811 9.4812C12.1059 10.8565 11.3333 12.7217 11.3333 14.6666C11.3333 16.6116 12.1059 18.4768 13.4811 19.8521C14.8564 21.2274 16.7217 22 18.6666 22ZM18.6666 22V42M18.6666 22C18.6666 29.7333 24.9333 36 32.6666 36H37.9999M18.6666 42C16.7217 42 14.8564 42.7726 13.4811 44.1479C12.1059 45.5231 11.3333 47.3884 11.3333 49.3333C11.3333 51.2782 12.1059 53.1435 13.4811 54.5188C14.8564 55.894 16.7217 56.6666 18.6666 56.6666C20.6115 56.6666 22.4768 55.894 23.852 54.5188C25.2273 53.1435 25.9999 51.2782 25.9999 49.3333C25.9999 47.3884 25.2273 45.5231 23.852 44.1479C22.4768 42.7726 20.6115 42 18.6666 42ZM37.9999 36C37.9999 37.9449 38.7725 39.8102 40.1478 41.1854C41.5231 42.5607 43.3883 43.3333 45.3332 43.3333C47.2782 43.3333 49.1434 42.5607 50.5187 41.1854C51.894 39.8102 52.6666 37.9449 52.6666 36C52.6666 34.0551 51.894 32.1898 50.5187 30.8145C49.1434 29.4393 47.2782 28.6666 45.3332 28.6666C43.3883 28.6666 41.5231 29.4393 40.1478 30.8145C38.7725 32.1898 37.9999 34.0551 37.9999 36Z"
+                                stroke="#E6E6E6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <a href="/project/<%= projectId %>/character/<%= charId %>">
+                            <%= projectData.charactersinfo[charId] %>
+                        </a>
+                    </div>
+                    <% } %>
+
+            </div>
+
+        </div>
+
+
+        <div class="project-page-content-container">
+
+            <div class="project-page-content-header">
+                <div class="project-page-content-header-left">
+                    <div class="project-image-container">
+                        <%= characterData.name.charAt(0).toUpperCase() %>
+                    </div>
+                </div>
+                <div class="project-page-content-header-right">
+                    <div class="right-side-project-name">
+                        <%= characterData.name %>
+                    </div>
+                    <div class="right-side-project-details-container">
+                        <div class="project-created-container">
+                            <div class="project-created-text">
+                                <span class="color-light-gray">
+                                    Created:
+                                </span> <span class="project-created-date" title="<%= characterData.createdAt %>">
+                                    <%= characterData.createdAt %>
+                                </span>
+                            </div>
+                            <div class="project-updated-text">
+                                <span class="color-light-gray">
+                                    Updated:
+                                </span> <span class="project-updated-date" title="<%= characterData.updatedAt %>">
+                                    <%= characterData.updatedAt %>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-page-description-container">
+                <h2 class="project-page-h2-header-text">
+                    Details
+                </h2>
+                <div class="project-page-description-body">
+                    <%- characterData.description %>
+                </div>
+            </div>
+
+            <div class="character-page-history-container">
+                <h2 class="project-page-h2-header-text">
+                    History
+                </h2>
+                <div class="character-page-history-body">
+
+                    <% if (characterData.versions && Object.keys(characterData.versions).length> 0) { %>
+                        <% for (const versionId in characterData.versions) { %>
+                            <a class="history-version"
+                                href="/project/<%= projectId %>/character/<%= characterId %>/v/<%= versionId %>">
+                                <div class="version-id">
+                                    <%= versionId %>
+                                </div>
+                                <div class="version-update-date">
+                                    <%= characterData.versions[versionId] %>
+                                </div>
+                            </a>
+                            <% } %>
+                                <% } else { %>
+                                    <div class="no-characters">No history available.</div>
+                                    <% } %>
+
+                </div>
+            </div>
+
+        </>
+
+        <!-- The Context Menu -->
+        <div id="contextMenu" class="context-menu">
+            <ul>
+                <li onclick="editCharacter()">Edit</li>
+                <li onclick="deleteCharacter()">Delete</li>
+            </ul>
+        </div>
+
+        <script>
+            // eslint-disable-next-line no-undef
+            const characterData = <%- JSON.stringify(characterData) %>;
+            const characterId = <%- JSON.stringify(characterId) %>;
+            //console.log('characterId: ', characterId); // Log the characterId for debugging
+            const projectCreatedDateDiv = document.querySelector('.project-created-date');
+            const updatedDateDiv = document.querySelector('.project-updated-date');
+
+            function formatDate(dateString) {
+                const date = new Date(dateString._seconds * 1000 + dateString._nanoseconds / 1000000);
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                return date.toLocaleDateString(undefined, options);
+            }
+
+            function formatFullDate(dateString) {
+                const date = new Date(dateString._seconds * 1000 + dateString._nanoseconds / 1000000);
+                const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+                return date.toLocaleDateString(undefined, options);
+            }
+            const createdAt = characterData.createdAt;
+            const updatedAt = characterData.updatedAt; // Assuming you want to format the updatedAt date as well
+            //console.log(createdAt, updatedAt); // Log the createdAt and updatedAt values for debugging
+            //console.log(formatDate(createdAt), formatDate(updatedAt)); // Log the formatted dates for debugging
+            projectCreatedDateDiv.textContent = formatDate(createdAt); // Update the displayed date
+            projectCreatedDateDiv.title = formatFullDate(createdAt); // Set the tooltip to show the full date
+            updatedDateDiv.textContent = formatDate(updatedAt); // Update the displayed updated date
+            updatedDateDiv.title = formatFullDate(updatedAt); // Set the tooltip to show the full updated date
+
+            let currentCharacterId = null;
+
+            function showContextMenu(event, characterId) {
+                event.preventDefault(); // optional, prevents default behavior
+                //console.log("Context menu triggered for character ID:", characterId); // Log the character ID
+                currentCharacterId = characterId;
+
+                const menu = document.getElementById('contextMenu');
+                menu.style.top = `${event.pageY}px`;
+                menu.style.left = `${event.pageX}px`;
+                menu.style.display = 'block';
+            }
+
+            // Hide the context menu if clicking outside
+            document.addEventListener('click', (e) => {
+                const menu = document.getElementById('contextMenu');
+                if (!e.target.closest('#contextMenu') && !e.target.closest('#settings-btn')) {
+                    menu.style.display = 'none';
+                }
+            });
+
+            function editCharacter() {
+                window.location.href = `/project/<%= projectId %>/character/${currentCharacterId}/edit`;
+            }
+
+            function deleteCharacter() {
+                if (confirm("Delete this character?")) {
+                    fetch(`/project/<%= projectId %>/character/${currentCharacterId}/delete`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                        .then(response => {
+                            //console.log("Delete response:", response); // Log the response for debugging
+                            if (response.ok) {
+                                window.location.href = `/project/<%= projectId %>`; // Updated to use projectId variable
+                            } else {
+                                alert('Failed to delete character.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('An error occurred while deleting the character.');
+                        });
+                }
+            }
+
+        </script>
+
+        <%- include('partials/footer') -%>

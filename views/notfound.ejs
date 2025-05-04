@@ -1,0 +1,44 @@
+<%- include('partials/header') -%>
+    <style>
+        .main-404-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+            text-align: center;
+        }
+
+        .main-404-container h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .main-404-container p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .main-404-container a {
+            font-size: 1.2rem;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .main-404-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <div class="main-404-container">
+        <h1>404 - Page Not Found</h1>
+        <p>Sorry, the page you are looking for does not exist.</p>
+        <!-- if error message -->
+        <% if (error) { %>
+            <p>
+                <%= error.message %>
+            </p>
+            <% } %>
+                <a href="/">Return to Home</a>
+    </div>
+    <%- include('partials/footer') -%>
